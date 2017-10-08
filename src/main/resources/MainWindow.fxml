@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.MainWindowController">
+   <children>
+      <HBox prefHeight="250.0" prefWidth="600.0">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="250.0">
+               <children>
+                  <ImageView fx:id="previewField" fitHeight="250.0" fitWidth="250.0" onDragDropped="#acceptDropFile" onDragOver="#checkDropFileExtension" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox prefWidth="350.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="80.0" text="Изображение">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="picturePathField" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="171.0">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="openPictureButton" defaultButton="true" mnemonicParsing="false" onAction="#openPictureFile" prefHeight="25.0" prefWidth="52.0" text="Open" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="344.0">
+                     <children>
+                        <Label prefHeight="25.0" text="Размер ячейки">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Spinner fx:id="cellSizeSpinner" disable="true" editable="true" prefHeight="25.0" prefWidth="60.0">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Spinner>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="344.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="80.0" text="Имя файла">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="outputFilePath" disable="true" editable="false" prefHeight="25.0" prefWidth="170.0">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="openOutputFileButton" disable="true" mnemonicParsing="false" onAction="#createOutputFile" prefHeight="25.0" prefWidth="52.0" text="Open">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <Label text="Прогресс конвертации">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefWidth="200.0">
+                     <children>
+                        <ProgressBar fx:id="progressBar" disable="true" prefHeight="25.0" prefWidth="260.0" progress="0.0">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </ProgressBar>
+                        <Button fx:id="startConvertButton" disable="true" mnemonicParsing="false" onAction="#startConvertation" prefHeight="25.0" prefWidth="50.0" text="Start">
+                           <HBox.margin>
+                              <Insets left="5.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="344.0">
+                     <children>
+                        <Label fx:id="statusLabel" text="Осталось времени:" visible="false">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="timeLabel" text="Label" visible="false">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

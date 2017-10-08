@@ -1,0 +1,25 @@
+//plugins {
+//    id 'io.franzbecker.gradle-lombok' version '1.10'
+//}
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'idea'
+//apply plugin: 'io.franzbecker.gradle-lombok'
+
+sourceCompatibility = '1.8'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'app.PTEConverterApplication'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile project(':PTEConverter')
+    compile 'org.projectlombok:lombok:1.16.18'
+    testCompile group: 'junit', name: 'junit', version: '4.10'
+}
