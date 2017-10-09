@@ -2,15 +2,15 @@
 //    id 'io.franzbecker.gradle-lombok' version '1.10'
 //}
 apply plugin: 'java'
-apply plugin: 'application'
 apply plugin: 'idea'
 //apply plugin: 'io.franzbecker.gradle-lombok'
 
 sourceCompatibility = '1.8'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
-if (!hasProperty('mainClass')) {
-    ext.mainClass = 'app.PTEConverterApplication'
+task runApp(type: JavaExec) {
+    classpath sourceSets.main.runtimeClasspath
+    main = "app.PTEConverterApplication"
 }
 
 repositories {
